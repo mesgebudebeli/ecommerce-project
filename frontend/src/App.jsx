@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import api from './services/api.js';
 import { fetchProducts } from './services/products.js';
 import { getServerCart, addServerItem, replaceServerCart } from './services/cart.js';
@@ -134,6 +135,7 @@ export default function App() {
         <Route path="*" element={<main className="container page"><h2>Page not found</h2><Link to="/">Return to store</Link></main>} />
       </Routes>
       <Footer />
+      <Analytics />
     </div>
   );
 }
