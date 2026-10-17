@@ -1,0 +1,11 @@
+# Apache/XAMPP convenience file.
+# The app's real, built entry point is dist/index.html. Opening the plain
+# `frontend/` URL would load the Vite source index.html (which needs the dev
+# server) and show a blank page, so we send those two URLs to the build.
+# The Vite dev server (`npm run dev`) reads from disk and ignores this file.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /ecommerce-project-template/ecommerce-project/frontend/
+  RewriteCond %{REQUEST_URI} !/dist/
+  RewriteRule ^(index\.html)?$ dist/ [R=302,L]
+</IfModule>

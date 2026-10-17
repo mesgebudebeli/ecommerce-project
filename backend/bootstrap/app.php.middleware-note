@@ -1,0 +1,4 @@
+Laravel 11+ note: register the `admin` alias in `bootstrap/app.php` inside `withMiddleware`, for example:
+$middleware->alias(['admin' => \App\Http\Middleware\EnsureAdmin::class]);
+
+For Laravel 10, register it in `app/Http/Kernel.php` under `$middlewareAliases` (or `$routeMiddleware` in older releases).

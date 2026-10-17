@@ -1,0 +1,15 @@
+// Merge these entries into the existing config/services.php array:
+'telebirr' => [
+    'base_url' => env('TELEBIRR_BASE_URL'),
+    'merchant_id' => env('TELEBIRR_MERCHANT_ID'),
+    'app_id' => env('TELEBIRR_APP_ID'),
+    'app_key' => env('TELEBIRR_APP_KEY'),
+    'private_key' => env('TELEBIRR_PRIVATE_KEY'),
+    'callback_url' => env('TELEBIRR_CALLBACK_URL'),
+],
+'cbe' => [
+    'base_url' => env('CBE_BASE_URL'),
+    'merchant_id' => env('CBE_MERCHANT_ID'),
+    'api_key' => env('CBE_API_KEY'),
+    'callback_url' => env('CBE_CALLBACK_URL'),
+],

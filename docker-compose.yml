@@ -1,0 +1,26 @@
+# Optional local services for development.
+# Usage: docker compose up -d   (then run the seed: see docs/README.md)
+services:
+  mongo:
+    image: mongo:7
+    container_name: eshop-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  mongo-express:
+    image: mongo-express:1
+    container_name: eshop-mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
+      ME_CONFIG_BASICAUTH: "false"
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:
