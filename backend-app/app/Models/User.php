@@ -50,6 +50,8 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
+            // Serialize `_id` as a string to match the MongoDB template contract.
+            '_id' => 'string',
             'email_verified_at' => 'datetime',
         ];
     }

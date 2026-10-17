@@ -10,5 +10,5 @@ class Cart extends Model
 
     protected $fillable = ['user_id', 'items'];
 
-    protected $casts = ['items' => 'array'];
+    protected $casts = ['_id' => 'string', 'items' => 'array'];
 }

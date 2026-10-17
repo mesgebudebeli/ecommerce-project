@@ -13,5 +13,5 @@ class Order extends Model
         'shipping_address', 'payment_method', 'payment_status', 'status',
     ];
 
-    protected $casts = ['items' => 'array', 'subtotal' => 'float'];
+    protected $casts = ['_id' => 'string', 'items' => 'array', 'subtotal' => 'float'];
 }

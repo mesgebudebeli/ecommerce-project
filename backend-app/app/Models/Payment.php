@@ -13,5 +13,5 @@ class Payment extends Model
         'amount', 'currency', 'status', 'provider_payload_hash', 'verified_at',
     ];
 
-    protected $casts = ['amount' => 'float', 'verified_at' => 'datetime'];
+    protected $casts = ['_id' => 'string', 'amount' => 'float', 'verified_at' => 'datetime'];
 }

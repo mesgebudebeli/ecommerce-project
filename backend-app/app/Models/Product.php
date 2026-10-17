@@ -13,6 +13,9 @@ class Product extends Model
     protected $fillable = ['name', 'slug', 'description', 'category', 'price', 'stock', 'images', 'active'];
 
     protected $casts = [
+        // Serialize `_id` as a string so the API matches the MongoDB template
+        // contract (clients send string ids back; validation expects strings).
+        '_id' => 'string',
         'price' => 'float',
         'stock' => 'integer',
         'images' => 'array',
