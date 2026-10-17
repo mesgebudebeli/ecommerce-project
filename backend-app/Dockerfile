@@ -19,6 +19,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf \
  && sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
+ && echo 'ServerName localhost' >> /etc/apache2/apache2.conf \
  && printf '%s\n' \
       '<Directory /var/www/html/public>' \
       '    Options FollowSymLinks' \
@@ -37,6 +38,7 @@ RUN composer install --no-dev --no-interaction --no-scripts --prefer-dist
 COPY . .
 
 RUN composer dump-autoload --optimize --no-scripts \
+ && rm -f bootstrap/cache/*.php \
  && chown -R www-data:www-data storage bootstrap/cache database \
  && chmod -R ug+rwX storage bootstrap/cache database
 
